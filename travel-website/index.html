@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incredible Trails India</title>
+    <meta
+      name="description"
+      content="Explore vibrant Indian destinations with immersive journeys across mountains, beaches, heritage cities, and wildlife escapes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="skyCanvas" aria-hidden="true"></canvas>
+
+    <header class="topbar" id="topbar">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">
+          <span class="brand-mark">IT</span>
+          <span class="brand-text">Incredible Trails India</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav" class="main-nav">
+          <a href="#home">Home</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#experiences">Experiences</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#plan">Plan Trip</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="kicker">Curated journeys across India</p>
+            <h1>
+              Discover <span id="destinationTicker">Rajasthan</span>
+              with color, culture, and comfort.
+            </h1>
+            <p>
+              From Himalayan mornings to coastal sunsets, plan unforgettable
+              experiences across India's most loved travel circuits.
+            </p>
+            <div class="hero-actions">
+              <a href="#destinations" class="btn btn-primary">Explore Routes</a>
+              <a href="#plan" class="btn btn-outline">Build My Itinerary</a>
+            </div>
+            <div class="hero-badges">
+              <span>22+ states covered</span>
+              <span>Handpicked local guides</span>
+              <span>Custom budget plans</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="stamp">INDIA 2026</div>
+            <figure class="tile tile-one">
+              <img
+                src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=80"
+                alt="Taj Mahal with reflecting pool"
+              />
+            </figure>
+            <figure class="tile tile-two">
+              <img
+                src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=80"
+                alt="Backwaters and houseboat in Kerala"
+              />
+            </figure>
+            <figure class="tile tile-three">
+              <img
+                src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=900&q=80"
+                alt="Colorful traditional market in Jaipur"
+              />
+            </figure>
+          </div>
+        </div>
+        <div class="curve" aria-hidden="true"></div>
+      </section>
+
+      <section class="stats container reveal">
+        <article class="stat-card">
+          <h3 data-target="150">0</h3>
+          <p>Destinations</p>
+        </article>
+        <article class="stat-card">
+          <h3 data-target="980">0</h3>
+          <p>Verified Local Experiences</p>
+        </article>
+        <article class="stat-card">
+          <h3 data-target="75">0</h3>
+          <p>Weekend Getaway Circuits</p>
+        </article>
+        <article class="stat-card">
+          <h3 data-target="4.9">0</h3>
+          <p>Average Traveler Rating</p>
+        </article>
+      </section>
+
+      <section id="destinations" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Top Indian Destinations</p>
+          <h2>Travel by Region</h2>
+          <p>
+            Select a region and discover iconic places, hidden gems, and
+            signature activities.
+          </p>
+        </div>
+
+        <div class="filters reveal" id="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="north">North</button>
+          <button class="chip" data-filter="south">South</button>
+          <button class="chip" data-filter="east">East</button>
+          <button class="chip" data-filter="west">West</button>
+        </div>
+
+        <div class="dest-grid" id="destGrid">
+          <article class="dest-card reveal" data-region="north">
+            <img
+              src="https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&w=900&q=80"
+              alt="Snow peaks and valleys in Kashmir"
+            />
+            <div class="dest-content">
+              <span class="tag">North</span>
+              <h3>Kashmir</h3>
+              <p>Alpine lakes, meadows, gondola rides, and houseboat stays.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="north">
+            <img
+              src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
+              alt="Palaces and forts in Jaipur"
+            />
+            <div class="dest-content">
+              <span class="tag">North</span>
+              <h3>Jaipur</h3>
+              <p>Royal architecture, bazaars, and desert-side luxury escapes.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="south">
+            <img
+              src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+              alt="Palm trees and beaches in Goa"
+            />
+            <div class="dest-content">
+              <span class="tag">South</span>
+              <h3>Goa</h3>
+              <p>Beach clubs, Portuguese heritage lanes, and seafood trails.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="south">
+            <img
+              src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=900&q=80"
+              alt="Tea plantations in Munnar"
+            />
+            <div class="dest-content">
+              <span class="tag">South</span>
+              <h3>Munnar</h3>
+              <p>Rolling tea gardens, misty hills, and scenic valley drives.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="east">
+            <img
+              src="https://images.unsplash.com/photo-1640784073768-327ca65ea04d?auto=format&fit=crop&w=900&q=80"
+              alt="Boats and evening prayers in Varanasi"
+            />
+            <div class="dest-content">
+              <span class="tag">East</span>
+              <h3>Varanasi</h3>
+              <p>Sunrise boat rides, riverfront rituals, and sacred ghats.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="east">
+            <img
+              src="https://images.unsplash.com/photo-1616091216791-a5360b5fc78a?auto=format&fit=crop&w=900&q=80"
+              alt="Waterfalls and cliffs in Meghalaya"
+            />
+            <div class="dest-content">
+              <span class="tag">East</span>
+              <h3>Meghalaya</h3>
+              <p>Living root bridges, rainforests, caves, and cloud valleys.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="west">
+            <img
+              src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?auto=format&fit=crop&w=900&q=80"
+              alt="White desert in Kutch during sunset"
+            />
+            <div class="dest-content">
+              <span class="tag">West</span>
+              <h3>Kutch</h3>
+              <p>Salt desert festivals, crafts villages, and folk music nights.</p>
+            </div>
+          </article>
+
+          <article class="dest-card reveal" data-region="west">
+            <img
+              src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=900&q=80"
+              alt="Skyline and sea-link view of Mumbai"
+            />
+            <div class="dest-content">
+              <span class="tag">West</span>
+              <h3>Mumbai</h3>
+              <p>Urban culture, culinary tours, nightlife, and marine drive views.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experiences" class="section section-alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Travel Themes</p>
+            <h2>Experiences That Define India</h2>
+          </div>
+
+          <div class="experience-grid">
+            <article class="experience-card reveal">
+              <h3>Heritage Trails</h3>
+              <p>
+                Explore forts, palaces, UNESCO sites, and timeless architecture
+                with expert storytellers.
+              </p>
+            </article>
+
+            <article class="experience-card reveal">
+              <h3>Nature and Wildlife</h3>
+              <p>
+                Spot tigers, elephants, and migratory birds in India's protected
+                reserves and wetlands.
+              </p>
+            </article>
+
+            <article class="experience-card reveal">
+              <h3>Food Journeys</h3>
+              <p>
+                Taste regional cuisines from street legends to royal thalis,
+                coastal seafood, and mountain flavors.
+              </p>
+            </article>
+          </div>
+
+          <div class="festival-band reveal">
+            <div>
+              <h3>Festival Calendar Highlights</h3>
+              <p>Plan around India's most vibrant celebrations.</p>
+            </div>
+            <div class="festival-track">
+              <span>Jan: Jaipur Literature Festival</span>
+              <span>Mar: Holi in Mathura</span>
+              <span>Oct: Durga Puja, Kolkata</span>
+              <span>Nov: Pushkar Camel Fair</span>
+              <span>Dec: Hornbill Festival, Nagaland</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Visual Journey</p>
+          <h2>Inspiring Moments Across India</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item tall reveal">
+            <img
+              src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80"
+              alt="Mountain road in Ladakh"
+            />
+          </button>
+          <button class="gallery-item wide reveal">
+            <img
+              src="https://images.unsplash.com/photo-1523544545175-92e04b96d26b?auto=format&fit=crop&w=1200&q=80"
+              alt="Colorful umbrellas and market lane"
+            />
+          </button>
+          <button class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80"
+              alt="Tea served at campsite in Himalayas"
+            />
+          </button>
+          <button class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80"
+              alt="Boats by the ghats at sunrise"
+            />
+          </button>
+          <button class="gallery-item wide reveal">
+            <img
+              src="https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&w=1200&q=80"
+              alt="Camel in the desert at sunset"
+            />
+          </button>
+          <button class="gallery-item tall reveal">
+            <img
+              src="https://images.unsplash.com/photo-1583403073347-6e885f16df1f?auto=format&fit=crop&w=900&q=80"
+              alt="Kathakali artist makeup portrait"
+            />
+          </button>
+        </div>
+      </section>
+
+      <section class="section testimonials section-alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Traveler Voices</p>
+            <h2>What Guests Love</h2>
+          </div>
+
+          <div class="testimonial-shell reveal">
+            <button class="arrow" id="prevTestimonial" aria-label="Previous testimonial">
+              &#10094;
+            </button>
+            <div class="testimonial-viewport">
+              <div class="testimonial-track" id="testimonialTrack">
+                <article class="testimonial-card">
+                  <p>
+                    "Our Rajasthan circuit was perfectly paced. Every stay felt
+                    authentic and premium at the same time."
+                  </p>
+                  <h4>Neha S., Bengaluru</h4>
+                </article>
+                <article class="testimonial-card">
+                  <p>
+                    "Kerala backwaters + Munnar + Kochi in one itinerary. Smooth,
+                    scenic, and memorable for our family."
+                  </p>
+                  <h4>Rahul & Priya, Pune</h4>
+                </article>
+                <article class="testimonial-card">
+                  <p>
+                    "The Varanasi sunrise boat ride and food walk were magical.
+                    Great local guides and safe logistics."
+                  </p>
+                  <h4>Arjun M., Delhi</h4>
+                </article>
+              </div>
+            </div>
+            <button class="arrow" id="nextTestimonial" aria-label="Next testimonial">
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="plan" class="section container">
+        <div class="plan-box reveal">
+          <div>
+            <p class="eyebrow">Start Planning</p>
+            <h2>Design Your India Trip</h2>
+            <p>
+              Share your preferences and we will craft a route with the right
+              pace, activities, and budget options.
+            </p>
+          </div>
+
+          <form class="plan-form" onsubmit="return false;">
+            <input type="text" placeholder="Your name" aria-label="Name" />
+            <input type="email" placeholder="Email address" aria-label="Email" />
+            <select aria-label="Preferred trip theme">
+              <option>Trip theme</option>
+              <option>Heritage</option>
+              <option>Beach & Leisure</option>
+              <option>Adventure</option>
+              <option>Wellness</option>
+            </select>
+            <button class="btn btn-primary" type="submit">Request Itinerary</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <p>Incredible Trails India</p>
+        <p>Crafted for discovering and promoting Indian destinations.</p>
+      </div>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Expanded destination preview" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
