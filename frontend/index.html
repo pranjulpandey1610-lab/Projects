@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderAI | Luxury AI Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="ambient-grain" aria-hidden="true"></div>
+    <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+    <header class="site-nav" id="site-nav">
+      <a class="brand" href="#/home" aria-label="WanderAI home">
+        <span class="brand-mark">W</span>
+        <span>WanderAI</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#/explore">Explore</a>
+        <a href="#/planner">Planner</a>
+        <a href="#/reviews">Reviews</a>
+        <a href="#/journal">Journal</a>
+        <a href="#/gallery">Gallery</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-route" id="home" data-route="home">
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">AI-curated private journeys</p>
+          <h1>WanderAI</h1>
+          <p class="hero-copy">
+            Shape cinematic escapes with intelligent search, day-by-day planning, image insight,
+            multilingual stories, and sentiment-aware reviews.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#/explore">Explore Now</a>
+            <a class="ghost-cta" href="#/planner">Plan a Journey</a>
+          </div>
+        </div>
+        <div class="floating-card card-one reveal">
+          <span>Private coast</span>
+          <strong>Amalfi by moonlight</strong>
+        </div>
+        <div class="floating-card card-two reveal">
+          <span>Slow luxury</span>
+          <strong>Kyoto garden ryokan</strong>
+        </div>
+        <div class="scroll-cue">Scroll</div>
+      </section>
+
+      <section class="search-section section-route" id="explore" data-route="explore">
+        <div class="section-heading reveal">
+          <p class="eyebrow">AI destination search</p>
+          <h2>Find the journey that matches the mood.</h2>
+        </div>
+
+        <div class="search-shell reveal">
+          <label for="destination-search">Destination, style, or region</label>
+          <div class="search-input-wrap">
+            <input
+              id="destination-search"
+              type="search"
+              autocomplete="off"
+              placeholder="Try Bali, Kyoto, desert, coast..."
+            />
+            <div class="search-pulse" aria-hidden="true"></div>
+          </div>
+          <div class="suggestions-panel" id="suggestions-panel" hidden></div>
+        </div>
+
+        <div class="filters reveal" aria-label="Destination filters">
+          <button class="filter-pill active" data-filter="all" type="button">All</button>
+          <button class="filter-pill" data-filter="luxury" type="button">Luxury</button>
+          <button class="filter-pill" data-filter="premium" type="button">Premium</button>
+          <button class="filter-pill" data-filter="value" type="button">Value</button>
+          <button class="filter-pill" data-filter="Asia" type="button">Asia</button>
+          <button class="filter-pill" data-filter="Europe" type="button">Europe</button>
+          <button class="filter-pill" data-filter="4.8" type="button">4.8+</button>
+        </div>
+
+        <div class="destination-grid" id="destination-grid" aria-live="polite">
+          <article class="destination-card skeleton"></article>
+          <article class="destination-card skeleton"></article>
+          <article class="destination-card skeleton"></article>
+        </div>
+      </section>
+
+      <section class="planner-section section-route" id="planner" data-route="planner">
+        <div class="section-heading reveal">
+          <p class="eyebrow">AI itinerary planner</p>
+          <h2>Turn a wish into a polished day-by-day plan.</h2>
+        </div>
+        <div class="planner-layout reveal">
+          <form class="planner-form glass-panel" id="planner-form">
+            <label>
+              Destination
+              <input name="destination" type="text" value="Kyoto" required />
+            </label>
+            <label>
+              Days
+              <input name="days" type="number" min="1" max="14" value="5" required />
+            </label>
+            <label>
+              Budget
+              <select name="budget">
+                <option value="luxury">Luxury</option>
+                <option value="premium">Premium</option>
+                <option value="value">Value-conscious</option>
+              </select>
+            </label>
+            <label>
+              Style
+              <input name="style" type="text" value="temples, food, and slow mornings" />
+            </label>
+            <button class="primary-cta" type="submit">Generate Itinerary</button>
+          </form>
+          <div class="timeline" id="itinerary-output">
+            <div class="empty-state">Your AI itinerary will unfold here.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-section section-route" id="reviews" data-route="reviews">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Review intelligence</p>
+          <h2>Read the emotional shape of each journey.</h2>
+        </div>
+        <div class="reviews-grid reveal" id="reviews-grid">
+          <article class="review-card skeleton"></article>
+          <article class="review-card skeleton"></article>
+          <article class="review-card skeleton"></article>
+        </div>
+      </section>
+
+      <section class="journal-section section-route" id="journal" data-route="journal">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Multilingual journal</p>
+          <h2>Editorial travel notes in the language you choose.</h2>
+        </div>
+        <div class="language-pills reveal" id="language-pills" aria-label="Blog language">
+          <button class="filter-pill active" data-lang="en" type="button">EN</button>
+          <button class="filter-pill" data-lang="hi" type="button">हिन्दी</button>
+          <button class="filter-pill" data-lang="fr" type="button">FR</button>
+          <button class="filter-pill" data-lang="es" type="button">ES</button>
+        </div>
+        <div class="blog-grid reveal" id="blog-grid"></div>
+      </section>
+
+      <section class="gallery-section section-route" id="gallery" data-route="gallery">
+        <div class="section-heading reveal">
+          <p class="eyebrow">AI vision gallery</p>
+          <h2>Upload a frame and receive an editorial caption.</h2>
+        </div>
+        <div class="gallery-layout reveal">
+          <div class="drop-zone" id="drop-zone" tabindex="0">
+            <input id="photo-input" type="file" accept="image/*" hidden />
+            <div class="drop-copy">
+              <strong>Drop a travel photo</strong>
+              <span>or select an image for AI captioning</span>
+            </div>
+          </div>
+          <div class="vision-result glass-panel" id="vision-result">
+            <div class="empty-state">Caption and tags will appear after analysis.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="chat-orb" id="chat-orb" type="button" aria-label="Open WanderAI chat">
+      <span></span>
+    </button>
+    <aside class="chat-drawer" id="chat-drawer" aria-label="WanderAI chat drawer">
+      <div class="chat-header">
+        <div>
+          <p class="eyebrow">WanderAI concierge</p>
+          <h3>Ask about your next escape</h3>
+        </div>
+        <button class="icon-button" id="chat-close" type="button" aria-label="Close chat">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <form class="chat-form" id="chat-form">
+        <input id="chat-input" type="text" placeholder="Ask for a coastal honeymoon..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </aside>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand" href="#/home">
+          <span class="brand-mark">W</span>
+          <span>WanderAI</span>
+        </a>
+        <p>Luxury travel intelligence for slow, personal, cinematic journeys.</p>
+      </div>
+      <form class="newsletter" id="newsletter-form">
+        <label for="newsletter-email">Private dispatch</label>
+        <div>
+          <input id="newsletter-email" type="email" placeholder="you@example.com" required />
+          <button type="submit">Join</button>
+        </div>
+      </form>
+      <div class="footer-links">
+        <a href="#/explore">Instagram</a>
+        <a href="#/journal">Journal</a>
+        <a href="#/planner">Concierge</a>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

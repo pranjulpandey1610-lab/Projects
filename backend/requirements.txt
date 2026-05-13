@@ -1,0 +1,9 @@
+flask
+flask-cors
+azure-ai-textanalytics
+azure-search-documents
+azure-cognitiveservices-vision-computervision
+openai
+requests
+Pillow
+python-dotenv
