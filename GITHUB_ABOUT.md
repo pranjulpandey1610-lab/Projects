@@ -19,7 +19,7 @@ AI-powered luxury travel planning with search, chat, itinerary generation, trans
 | Field | Content |
 | --- | --- |
 | Repository description | AI-powered luxury travel planning website built with Flask, vanilla JavaScript, and Azure-ready service modules. |
-| Website | Add your deployed website URL here |
+| Website | https://pranjulpandey1610-lab.github.io/Projects/ |
 | Topics | `flask`, `python`, `javascript`, `html-css`, `travel-website`, `azure-ai`, `ai-chatbot`, `itinerary-planner`, `responsive-design`, `full-stack-web-app` |
 
 ## Website Placeholder
@@ -27,13 +27,13 @@ AI-powered luxury travel planning with search, chat, itinerary generation, trans
 Use this space for the final deployed website link:
 
 ```text
-Website: Add your deployed website URL here
+Website: https://pranjulpandey1610-lab.github.io/Projects/
 ```
 
 Suggested format after deployment:
 
 ```text
-Website: https://your-deployed-wanderai-link.com
+Website: https://pranjulpandey1610-lab.github.io/Projects/
 ```
 
 ## Short About

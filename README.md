@@ -6,8 +6,7 @@ The frontend is built with HTML, CSS, and vanilla JavaScript. The backend is bui
 
 ## Live Website
 
-Website link: file:///Users/pranjulpandey/Desktop/azure%20app/frontend/index.html
-
+Website link: https://pranjulpandey1610-lab.github.io/Projects/
 
 ## Table of Contents
 
