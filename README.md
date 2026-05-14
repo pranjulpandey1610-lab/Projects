@@ -6,11 +6,8 @@ The frontend is built with HTML, CSS, and vanilla JavaScript. The backend is bui
 
 ## Live Website
 
-Website link: _Add your deployed website URL here_
+Website link:(file:///Users/pranjulpandey/Desktop/azure%20app/frontend/index.html)
 
-```text
-https://your-wanderai-website-link.com
-```
 
 ## Table of Contents
 
