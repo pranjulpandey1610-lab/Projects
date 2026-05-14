@@ -1,27 +1,154 @@
 # GitHub About
 
-Use this content for the GitHub repository sidebar About section and repository metadata.
+Use this file as the enhanced GitHub project overview and as copy-ready content for the repository sidebar.
 
-## Repository Description
+## Copy For GitHub Sidebar
 
-```text
-AI-powered luxury travel website built with Flask, vanilla JavaScript, and Azure-ready service modules.
+| Field | Content |
+| --- | --- |
+| Repository description | AI-powered luxury travel planning website built with Flask, vanilla JavaScript, and Azure-ready service modules. |
+| Website | Add your deployed website URL here |
+| Topics | `flask`, `python`, `javascript`, `html-css`, `travel-website`, `azure-ai`, `ai-chatbot`, `itinerary-planner`, `responsive-design`, `full-stack-web-app` |
+
+## Short About
+
+WanderAI is an AI-powered luxury travel planning web app with destination search, itinerary generation, chatbot support, multilingual travel content, review sentiment, image captioning, and an Azure-ready Flask backend.
+
+## Detailed About
+
+WanderAI is a full-stack AI-powered luxury travel planning website designed to feel like a modern digital travel concierge. It helps users explore curated destinations, search for travel ideas, generate day-by-day itineraries, analyze traveler reviews, translate travel journal content, and create AI-style captions for uploaded travel photos.
+
+The frontend is built with HTML, CSS, and vanilla JavaScript. It uses a cinematic single-page layout with responsive sections, animated destination cards, filter controls, smooth loading states, a floating chatbot drawer, an itinerary planner, multilingual journal content, and a drag-and-drop image analysis experience.
+
+The backend is built with Python Flask and exposes clean API routes for chat, search, destinations, itinerary generation, sentiment analysis, entity extraction, translation, and image analysis. Each AI-related capability is separated into a focused service module, making the project easier to understand, maintain, and extend.
+
+The project currently runs with mock-backed AI responses, so it can be tested locally without cloud credentials or paid API keys. The service structure is Azure-ready and can be connected later to Azure OpenAI, Azure AI Search, Azure AI Language, Azure Translator, and Azure Vision.
+
+## Project Flow
+
+```mermaid
+flowchart TD
+    A["User opens WanderAI"] --> B["Explore destinations"]
+    B --> C["Search by destination, style, or region"]
+    C --> D["View destination cards and filters"]
+    A --> E["Use AI planner"]
+    E --> F["Enter destination, days, budget, and style"]
+    F --> G["Generate day-by-day itinerary"]
+    A --> H["Open AI chat drawer"]
+    H --> I["Ask travel questions"]
+    A --> J["Read reviews and journal"]
+    J --> K["Analyze sentiment and translate content"]
+    A --> L["Upload travel photo"]
+    L --> M["Generate caption and travel tags"]
 ```
 
-## Website
+## Architecture Flowchart
 
-```text
-Add your deployed website URL here
+```mermaid
+flowchart LR
+    U["Traveler / User"] --> UI["Frontend<br/>HTML, CSS, JavaScript"]
+    UI --> API["Flask API<br/>backend/app.py"]
+
+    API --> CHAT["Chat Service<br/>bot.py"]
+    API --> SEARCH["Search Service<br/>search.py"]
+    API --> LANG["Language Service<br/>language.py"]
+    API --> TRANSLATE["Translator Service<br/>translator.py"]
+    API --> VISION["Vision Service<br/>vision.py"]
+    API --> PLAN["Itinerary Service<br/>openai_service.py"]
+
+    CHAT --> MOCK["Mock AI Responses"]
+    SEARCH --> MOCK
+    LANG --> MOCK
+    TRANSLATE --> MOCK
+    VISION --> MOCK
+    PLAN --> MOCK
+
+    MOCK -. "Future upgrade" .-> AZURE["Azure AI Services<br/>OpenAI, Search, Language, Translator, Vision"]
 ```
 
-## Topics
+## Feature Map
 
-```text
-flask, javascript, travel-website, azure-ai, ai-chatbot, itinerary-planner, responsive-design
+| Feature | What It Does | Current Implementation | Future Azure Service |
+| --- | --- | --- | --- |
+| Destination Search | Suggests travel destinations based on user input | Mock destination search service | Azure AI Search |
+| AI Chatbot | Answers travel-related questions in a concierge style | Mock chatbot service | Azure OpenAI |
+| Itinerary Planner | Builds day-by-day trip plans from destination, duration, budget, and style | Mock itinerary generation | Azure OpenAI |
+| Review Sentiment | Labels travel reviews by emotional tone | Mock sentiment analysis | Azure AI Language |
+| Entity Extraction | Finds important travel-related entities in text | Mock entity extraction | Azure AI Language |
+| Translation | Converts travel journal content into selected languages | Mock translation service | Azure Translator |
+| Image Captioning | Creates captions and tags for uploaded travel photos | Mock image analysis | Azure Vision |
+
+## Tech Stack
+
+```mermaid
+mindmap
+  root((WanderAI))
+    Frontend
+      HTML
+      CSS
+      JavaScript
+      Responsive UI
+      SPA-style navigation
+    Backend
+      Python
+      Flask
+      Flask-CORS
+      REST API routes
+    AI Layer
+      Mock services
+      Azure-ready modules
+      OpenAI-ready itinerary logic
+    Future Cloud
+      Azure App Service
+      Azure OpenAI
+      Azure AI Search
+      Azure AI Language
+      Azure Translator
+      Azure Vision
 ```
 
-## About Text
+## Why This Project Stands Out
 
-WanderAI is a polished travel concierge experience for luxury and premium trip planning. It combines a cinematic single-page interface with AI-inspired features such as smart destination search, itinerary generation, multilingual content, review sentiment, chatbot support, and image analysis.
+- It presents a complete travel-tech product idea, not just a static landing page.
+- It includes multiple AI-inspired features across search, chat, language, vision, and planning.
+- It keeps the backend modular so each feature can be upgraded independently.
+- It runs locally without requiring secret keys, paid APIs, or cloud setup.
+- It is structured for future Azure AI integration and deployment.
+- It is suitable for GitHub, portfolio presentation, academic submission, and demo walkthroughs.
 
-This repository demonstrates full-stack web development with Flask and vanilla frontend technologies, an Azure AI-ready backend architecture, responsive travel website design, API-driven frontend interactions, and mock AI service patterns that can later be replaced with production integrations.
+## Repository Value
+
+This project demonstrates practical full-stack development skills through a polished and readable codebase. It shows how a frontend can communicate with a backend API, how AI capabilities can be organized into service modules, and how a mock-backed prototype can be prepared for production cloud services later.
+
+WanderAI can be expanded into a real travel planning platform by adding authentication, saved itineraries, database-backed destinations, user review storage, payment or booking flows, and production Azure AI integrations.
+
+## Suggested README Pitch
+
+```text
+WanderAI is a full-stack AI-powered luxury travel planning website. It combines a cinematic travel interface with AI-inspired destination search, itinerary generation, chatbot support, multilingual journal content, sentiment-aware reviews, and image captioning. The Flask backend is organized into Azure-ready service modules, allowing the current mock AI behavior to be replaced with real Azure AI integrations in the future.
+```
+
+## Suggested Commit Message
+
+```text
+Enhance GitHub About documentation
+```
+
+## Roadmap
+
+```mermaid
+timeline
+    title WanderAI Improvement Roadmap
+    Local Prototype : Mock AI services
+                    : Flask API routes
+                    : Vanilla JavaScript frontend
+    AI Integration : Connect Azure OpenAI
+                   : Add Azure AI Search
+                   : Enable Translator and Vision services
+    Data Layer : Add database storage
+               : Save itineraries
+               : Store destinations and reviews
+    Production : Add authentication
+               : Deploy backend and frontend
+               : Configure secure environment variables
+```
