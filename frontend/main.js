@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000';
+const API_BASE = '';
 
 const state = {
   destinations: [],
@@ -32,6 +32,104 @@ const state = {
       text: 'The coast was crowded in places, but the private boat and villa were stunning.'
     }
   ]
+};
+
+const staticDestinations = [
+  {
+    id: 'amalfi',
+    name: 'Amalfi Coast',
+    country: 'Italy',
+    location: 'Europe',
+    price: 4200,
+    priceTier: 'luxury',
+    rating: 4.9,
+    type: 'Coastal escape',
+    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Clifftop suites, lemon groves, private coves, and candlelit seafood terraces.'
+  },
+  {
+    id: 'kyoto',
+    name: 'Kyoto',
+    country: 'Japan',
+    location: 'Asia',
+    price: 3600,
+    priceTier: 'premium',
+    rating: 4.8,
+    type: 'Cultural retreat',
+    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Temple gardens, ryokan rituals, kaiseki dining, and dawn walks through bamboo.'
+  },
+  {
+    id: 'santorini',
+    name: 'Santorini',
+    country: 'Greece',
+    location: 'Europe',
+    price: 3900,
+    priceTier: 'luxury',
+    rating: 4.7,
+    type: 'Island romance',
+    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Caldera suites, private catamarans, volcanic wines, and blue-hour terraces.'
+  },
+  {
+    id: 'marrakech',
+    name: 'Marrakech',
+    country: 'Morocco',
+    location: 'Africa',
+    price: 2800,
+    priceTier: 'premium',
+    rating: 4.6,
+    type: 'Design-led city stay',
+    image: 'https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Riad courtyards, souk ateliers, desert dinners, and hammam afternoons.'
+  },
+  {
+    id: 'bali',
+    name: 'Bali',
+    country: 'Indonesia',
+    location: 'Asia',
+    price: 2600,
+    priceTier: 'value',
+    rating: 4.8,
+    type: 'Wellness escape',
+    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Jungle villas, sunrise yoga, surf coves, and chef-led Balinese tastings.'
+  },
+  {
+    id: 'patagonia',
+    name: 'Patagonia',
+    country: 'Argentina & Chile',
+    location: 'South America',
+    price: 5100,
+    priceTier: 'luxury',
+    rating: 4.9,
+    type: 'Expedition lodge',
+    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80',
+    summary: 'Glacier hikes, fire-warmed lodges, private guides, and big-sky silence.'
+  }
+];
+
+const staticTranslations = {
+  en: {
+    'A private guide to slower mornings, hidden courtyards, and late dinners beside the water.': 'A private guide to slower mornings, hidden courtyards, and late dinners beside the water.',
+    'How to turn a five-day escape into a restorative journey without losing the thrill of discovery.': 'How to turn a five-day escape into a restorative journey without losing the thrill of discovery.',
+    'Boutique stays, chef-led markets, and the quiet rituals that make a city feel personal.': 'Boutique stays, chef-led markets, and the quiet rituals that make a city feel personal.'
+  },
+  hi: {
+    'A private guide to slower mornings, hidden courtyards, and late dinners beside the water.': 'Hindi travel note: a private guide to slower mornings, hidden courtyards, and late dinners beside the water.',
+    'How to turn a five-day escape into a restorative journey without losing the thrill of discovery.': 'Hindi travel note: a five-day escape shaped as a restorative journey without losing discovery.',
+    'Boutique stays, chef-led markets, and the quiet rituals that make a city feel personal.': 'Hindi travel note: boutique stays, chef-led markets, and quiet rituals that make a city feel personal.'
+  },
+  fr: {
+    'A private guide to slower mornings, hidden courtyards, and late dinners beside the water.': "Un guide prive pour des matins plus lents, des cours cachees et des diners tardifs au bord de l'eau.",
+    'How to turn a five-day escape into a restorative journey without losing the thrill of discovery.': 'Comment transformer une escapade de cinq jours en voyage reparateur sans perdre le frisson de la decouverte.',
+    'Boutique stays, chef-led markets, and the quiet rituals that make a city feel personal.': 'Sejours boutique, marches avec chef et rituels discrets qui rendent une ville intime.'
+  },
+  es: {
+    'A private guide to slower mornings, hidden courtyards, and late dinners beside the water.': 'Una guia privada para mananas pausadas, patios ocultos y cenas tardias junto al agua.',
+    'How to turn a five-day escape into a restorative journey without losing the thrill of discovery.': 'Como convertir una escapada de cinco dias en un viaje reparador sin perder la emocion del descubrimiento.',
+    'Boutique stays, chef-led markets, and the quiet rituals that make a city feel personal.': 'Estancias boutique, mercados guiados por chefs y rituales tranquilos que hacen que una ciudad se sienta propia.'
+  }
 };
 
 const elements = {
@@ -78,19 +176,198 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function apiFetch(path, options = {}) {
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options.headers || {})
-    }
-  });
+  try {
+    const response = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      }
+    });
 
-  if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    return staticApiFetch(path, options);
+  }
+}
+
+function staticApiFetch(path, options = {}) {
+  const url = new URL(path, window.location.origin);
+  const body = options.body ? JSON.parse(options.body) : {};
+
+  if (url.pathname === '/api/destinations') {
+    return Promise.resolve({ destinations: staticDestinations });
   }
 
-  return response.json();
+  if (url.pathname === '/api/search') {
+    return Promise.resolve({ suggestions: staticSuggestDestinations(url.searchParams.get('q')) });
+  }
+
+  if (url.pathname === '/api/sentiment') {
+    return Promise.resolve({ reviews: staticAnalyzeSentiment(body.reviews || [{ author: 'Guest', text: body.text || '' }]) });
+  }
+
+  if (url.pathname === '/api/entities') {
+    return Promise.resolve({ entities: staticExtractEntities(body.text || '') });
+  }
+
+  if (url.pathname === '/api/translate') {
+    return Promise.resolve(staticTranslateText(body.text || '', body.targetLanguage || 'en'));
+  }
+
+  if (url.pathname === '/api/vision') {
+    return Promise.resolve(staticAnalyzeImage(body.imageData || ''));
+  }
+
+  if (url.pathname === '/api/itinerary') {
+    return Promise.resolve(staticGenerateItinerary(body));
+  }
+
+  if (url.pathname === '/api/chat') {
+    return Promise.resolve(staticChatReply(body.message || '', body.history || []));
+  }
+
+  return Promise.reject(new Error(`No static fallback for ${url.pathname}`));
+}
+
+function staticSuggestDestinations(query) {
+  const needle = (query || '').trim().toLowerCase();
+  const suggestions = staticDestinations.filter(destination => {
+    const haystack = [
+      destination.name,
+      destination.country,
+      destination.location,
+      destination.type,
+      destination.summary
+    ].join(' ').toLowerCase();
+    return !needle || haystack.includes(needle);
+  });
+
+  if (suggestions.length) {
+    return suggestions.slice(0, 6);
+  }
+
+  return [
+    {
+      name: query ? query.replace(/\b\w/g, letter => letter.toUpperCase()) : 'Hidden Coast',
+      country: 'Curated by WanderAI',
+      location: 'Bespoke',
+      type: 'Private itinerary concept',
+      score: 0.74,
+      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80'
+    }
+  ];
+}
+
+function staticGenerateItinerary(payload) {
+  const destination = (payload.destination || 'Amalfi Coast').trim();
+  const days = Math.min(Math.max(Number(payload.days) || 5, 1), 14);
+  const budget = payload.budget || 'premium';
+  const style = payload.style || payload.travelStyle || 'culture and slow luxury';
+  const titles = [
+    'Arrival With A Sense Of Place',
+    'Markets, Makers, And Hidden Rooms',
+    'Water, Wellness, And Slow Afternoons',
+    'Architecture, Art, And After-Dark Tables',
+    'A Private Detour Beyond The Guidebooks'
+  ];
+
+  return {
+    destination,
+    budget,
+    style,
+    days: Array.from({ length: days }, (_, index) => ({
+      day: index + 1,
+      title: titles[index] || `Signature ${style} Day In ${destination}`,
+      morning: `Begin with a private, unhurried introduction to ${destination}, tuned for ${style}.`,
+      afternoon: `Reserve the afternoon for a curated ${budget} experience with a local specialist.`,
+      evening: `Close day ${index + 1} with a golden-hour table, a short walk, and a quiet nightcap.`
+    }))
+  };
+}
+
+function staticChatReply(message, history = []) {
+  const lower = message.toLowerCase();
+  let reply = 'I would start with season, pace, and the feeling you want from the trip, then shortlist destinations where the hotels and local rhythm support that mood.';
+
+  if (!message.trim()) {
+    reply = 'Tell me where you are dreaming of going, when you want to travel, and the pace you prefer.';
+  } else if (lower.includes('budget')) {
+    reply = 'For a luxury trip, protect budget for location, private transfers, and one signature meal, then trim on midday dining and optional add-on tours.';
+  } else if (lower.includes('honeymoon') || lower.includes('romantic')) {
+    reply = 'I would build this around slower mornings, view-led suites, private transfers, and one surprise dinner where the setting does most of the work.';
+  } else if (lower.includes('itinerary') || lower.includes('days')) {
+    reply = 'Share destination, number of days, budget, and travel style. I can turn that into a day-by-day plan with a calm pace and strong anchors.';
+  }
+
+  return {
+    reply,
+    historyDepth: history.length,
+    suggestions: ['Design a 5-day itinerary', 'Find coastal luxury escapes', 'Compare Bali and Kyoto']
+  };
+}
+
+function staticAnalyzeSentiment(reviews) {
+  const positiveTerms = ['beautiful', 'excellent', 'amazing', 'luxury', 'perfect', 'memorable', 'seamless', 'stunning', 'calm', 'wonderful', 'loved'];
+  const negativeTerms = ['late', 'delayed', 'poor', 'noisy', 'bad', 'crowded', 'expensive', 'cold', 'missed', 'rushed', 'disappointed'];
+
+  return reviews.filter(review => (review.text || '').trim()).map(review => {
+    const words = (review.text.toLowerCase().match(/[a-z]+/g) || []);
+    const positiveHits = words.filter(word => positiveTerms.includes(word)).length;
+    const negativeHits = words.filter(word => negativeTerms.includes(word)).length;
+    const sentiment = positiveHits > negativeHits ? 'positive' : negativeHits > positiveHits ? 'negative' : 'neutral';
+
+    return {
+      author: review.author || 'Traveler',
+      text: review.text,
+      sentiment,
+      confidenceScores: {
+        positive: sentiment === 'positive' ? 0.86 : 0.28,
+        neutral: sentiment === 'neutral' ? 0.53 : 0.12,
+        negative: sentiment === 'negative' ? 0.82 : 0.08
+      }
+    };
+  });
+}
+
+function staticExtractEntities(text) {
+  const knownPlaces = ['Amalfi', 'Bali', 'Kyoto', 'Santorini', 'Marrakech', 'Patagonia', 'Paris', 'Tokyo', 'Rome', 'Jaipur'];
+  const places = knownPlaces.filter(place => new RegExp(`\\b${place}\\b`, 'i').test(text));
+  const dates = text.match(/\b(\d{4}-\d{2}-\d{2}|next\s(?:week|month|summer|winter|spring|fall))\b/gi) || [];
+
+  return [
+    ...places.map(place => ({ text: place, category: 'Location', confidenceScore: 0.92 })),
+    ...dates.map(date => ({ text: date, category: 'DateTime', confidenceScore: 0.87 }))
+  ];
+}
+
+function staticTranslateText(text, targetLanguage) {
+  const language = (targetLanguage || 'en').toLowerCase();
+  const phrasebook = staticTranslations[language] || staticTranslations.en;
+  const translatedText = phrasebook[text] || `${language.toUpperCase()} travel note: ${text}`;
+
+  return {
+    detectedLanguage: 'en',
+    targetLanguage: language,
+    translatedText
+  };
+}
+
+function staticAnalyzeImage(imageData) {
+  const mood = (imageData || '').length > 120000 ? 'cinematic' : 'editorial';
+
+  return {
+    caption: `A ${mood} travel frame with refined light, strong sense of place, and magazine-ready composition.`,
+    tags: ['travel', 'luxury', 'architecture', 'golden-hour', 'wanderai'],
+    metadata: {
+      received: Boolean(imageData),
+      analysisMode: 'static-pages-demo'
+    }
+  };
 }
 
 function bindNavigation() {
